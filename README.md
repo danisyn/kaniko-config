@@ -8,7 +8,7 @@ Configuración de kaniko para la creación de imágenes rootless
 Para subir imágenes a docker hub necesitaremos configurar un secret en kubernetes con los credenciales de docker
 
 **kubectl create secret docker-registry regcred --docker-username="docker username" 
- --docker-password="Personal access tocken" --docker-email="email"** 
+ --docker-password="Personal access token" --docker-email="email"** 
  
 Modifique los siguientes argumentos para subir la imágen a su docker hub
 
