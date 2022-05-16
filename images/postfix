@@ -25,4 +25,4 @@ RUN adduser postfix sasl
 
 EXPOSE 25 587
 
-CMD ["/usr/sbin/postfix"]
+CMD ["/usr/sbin/postfix start"]
