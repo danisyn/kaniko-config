@@ -6,5 +6,5 @@ spec:
  containers:
  - name: kaniko
    image: aisuko/kaniko-project-executor:latest
-   args: ["--context=git://{user access token}@github.com{repository}.git","--dockerfile={Dockerfile path}","--destination={GCP repository}:{image tag}"] # replace with your dockerhub account
+   args: ["--context=git://{user access token}@github.com{repository}.git","--dockerfile={Dockerfile path}","--destination={GCP repository}:{image tag}"] 
  restartPolicy: Never
