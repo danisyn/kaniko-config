@@ -20,7 +20,7 @@ spec:
  containers:
  - name: kaniko
    image: aisuko/kaniko-project-executor:latest
-   args: ["--dockerfile=./Dockerfile","--context=git://{personal access tocken}@github.com/{git repository}"
+   args: ["--dockerfile=./Dockerfile","--context=git://{personal access token}@github.com/{git repository}"
    ,"--destination={docker hub user}/test:v0.1"] 
    volumeMounts:
      - name: kaniko-secret
