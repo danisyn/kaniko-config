@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: kaniko
+spec:
+ containers:
+ - name: kaniko
+   image: aisuko/kaniko-project-executor:latest
+   args: ["--dockerfile=./Dockerfile","--context=git://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@github.com/danisyn/kaniko-test.git","--destination=daniels7/test:v0.1"] # replace with your dockerhub account
+   volumeMounts:
+     - name: kaniko-secret
+       mountPath: /kaniko/.docker
+ restartPolicy: Never
+ volumes:
+   - name: kaniko-secret
+     secret:
+       secretName: regcred
+       items:
+         - key: .dockerconfigjson
+           path: config.json
