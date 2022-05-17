@@ -17,7 +17,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
 
 RUN wget https://raw.githubusercontent.com/danisyn/kaniko-config/main/images/Postfix/start.sh?token=GHSAT0AAAAAABTBSRS7QSLWPUJGJMRBC26EYUDMUZA
 RUN mv start.sh?token=GHSAT0AAAAAABTBSRS7QSLWPUJGJMRBC26EYUDMUZA /usr/local/bin/start.sh
-RUN chmod +x start.sh
+RUN chmod +x /usr/local/bin/start.sh
 RUN touch /var/log/auth.log
 RUN touch /var/log/mail.log
 RUN groupadd -g 5555 spamd
