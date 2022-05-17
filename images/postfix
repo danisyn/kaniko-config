@@ -23,4 +23,4 @@ RUN ln -s /var/spool/postfix/var/run/saslauthd   /run/saslauthd
 RUN dpkg-statoverride --add root sasl 710 /var/spool/postfix/var/run/saslauthd
 RUN adduser postfix sasl 
 
-CMD ["/usr/sbin/postfix", "start"]
+CMD ["postfix startfg"]
