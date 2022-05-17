@@ -1,5 +1,7 @@
 FROM debian:latest
 
+COPY start.sh /
+
 RUN apt-get update && \
 DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
  python3 \
@@ -12,6 +14,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
  fail2ban \
  postfix-policyd-spf-python
 
+RUN chmod +x /start.sh
 RUN touch /var/log/auth.log
 RUN touch /var/log/mail.log
 RUN groupadd -g 5555 spamd
@@ -23,4 +26,4 @@ RUN ln -s /var/spool/postfix/var/run/saslauthd   /run/saslauthd
 RUN dpkg-statoverride --add root sasl 710 /var/spool/postfix/var/run/saslauthd
 RUN adduser postfix sasl 
 
-CMD ["postfix startfg"]
+CMD ["start.sh"]
