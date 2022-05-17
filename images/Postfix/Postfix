@@ -1,9 +1,10 @@
 FROM debian:latest
 
-ADD https://github.com/danisyn/kaniko-config/blob/main/images/Postfix/start.sh.tar.gz /
+
 
 RUN apt-get update && \
 DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+ wget \
  python3 \
  postfix \
  spamassassin \
@@ -14,6 +15,9 @@ DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
  fail2ban \
  postfix-policyd-spf-python
 
+RUN wget https://raw.githubusercontent.com/danisyn/kaniko-config/main/images/Postfix/start.sh?token=GHSAT0AAAAAABTBSRS7QSLWPUJGJMRBC26EYUDMUZA
+RUN mv start.sh?token=GHSAT0AAAAAABTBSRS7QSLWPUJGJMRBC26EYUDMUZA start.sh
+RUN cp start.sh /
 RUN chmod +x /start.sh
 RUN touch /var/log/auth.log
 RUN touch /var/log/mail.log
